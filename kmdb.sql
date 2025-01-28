@@ -117,7 +117,6 @@ DROP TABLE IF EXISTS movies;
 DROP TABLE IF EXISTS studios;
 
 -- Create new tables, according to your domain model
-
 CREATE TABLE studios (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT
@@ -145,7 +144,6 @@ CREATE TABLE roles (
 
 -- Insert data into your database that reflects the sample data shown above
 -- Use hard-coded foreign key IDs when necessary
-
 INSERT INTO studios (
   name
 )
@@ -207,7 +205,10 @@ VALUES
 .print ""
 
 -- The SQL statement for the movies output
--- TODO!
+SELECT movies.title, movies.year_released, movies.mpaa_rating, studios.name
+FROM 
+  movies
+INNER JOIN studios ON movies.studio_id = studios.id;
 
 -- Prints a header for the cast output
 .print ""
@@ -217,4 +218,8 @@ VALUES
 
 
 -- The SQL statement for the cast output
--- TODO!
+SELECT movies.title, actors.name, roles.character_name
+FROM 
+  roles
+INNER JOIN movies ON roles.movie_id = movies.id
+INNER JOIN actors ON roles.actor_id = actors.id;
