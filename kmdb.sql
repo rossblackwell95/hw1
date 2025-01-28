@@ -117,6 +117,7 @@ DROP TABLE IF EXISTS movies;
 DROP TABLE IF EXISTS studios;
 
 -- Create new tables, according to your domain model
+
 CREATE TABLE studios (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT
@@ -137,9 +138,9 @@ CREATE TABLE actors (
 
 CREATE TABLE roles (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
+    character_name TEXT,
     movie_id INTEGER,
-    actor_id INTEGER,
-    character_name TEXT
+    actor_id INTEGER
 );
 
 -- Insert data into your database that reflects the sample data shown above
